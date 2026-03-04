@@ -657,7 +657,7 @@ with st.sidebar:
 st.markdown("""
 <div class="app-header">
   <div>
-    <div class="brand-logo">Auto<span>Leaps</span> <span style="font-size:0.9rem;font-weight:400;color:#536070;">Support Intelligence</span></div>
+    <div class="brand-logo">Auto<span>Leap</span> <span style="font-size:0.9rem;font-weight:400;color:#536070;">Support Intelligence</span></div>
     <div class="brand-sub">Multi-agent AI · Triage → RAG Retrieval → FAQ → Escalation → CRM · Real-time pipeline</div>
   </div>
   <div class="status-live"><div class="dot-live"></div>AGENTS ONLINE</div>
