@@ -12,7 +12,7 @@ from collections import Counter
 
 # ── Page config ───────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="AutoLeaps · AI Support Orchestrator",
+    page_title="AutoLeap · AI Support Orchestrator",
     page_icon="🚗",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -248,66 +248,93 @@ def parse_file(uf) -> str:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# AUTOLEAPS DEFAULT KNOWLEDGE BASE
+# AUTOLEAP DEFAULT KNOWLEDGE BASE
 # ══════════════════════════════════════════════════════════════════════════════
 
-AUTOLEAPS_KB = """
-=== AUTOLEAPS KNOWLEDGE BASE ===
+AUTOLEAP_KB = """
+=== AUTOLEAP KNOWLEDGE BASE ===
 
-ABOUT AUTOLEAPS:
-AutoLeaps is an online automotive marketplace connecting private car buyers, sellers, lease holders, and dealerships across the UK and Ireland.
+ABOUT AUTOLEAP:
+AutoLeap is the #1 auto repair shop management software, trusted by thousands of auto repair shops across North America. It helps shop owners and service advisors manage estimates, work orders, invoicing, parts ordering, technician scheduling, and customer communication — all in one platform. Customers include independent repair shops, tire shops, transmission specialists, and multi-location shop chains.
 
-LISTINGS & VEHICLE SEARCH:
-- Searching: Use filters on autoleaps.com — make, model, year, mileage, fuel type, price range, postcode radius.
-- Listing a Car: Create a free account > My Garage > Add Listing. Include reg number, mileage, condition, photos (min 5). Takes up to 2 hours to go live.
-- Featured Listings: £9.99/month. Appear at top of search results. Manage in My Listings > Upgrade.
-- Expired Listings: Auto-expire after 90 days. Renew free in My Listings > Renew.
-- Photo Requirements: Minimum 5 photos. Max 10MB per image. JPEG or PNG only.
-- Vehicle History Check: Free basic HPI check included. Full HPI report £9.99.
+ESTIMATES & WORK ORDERS:
+- Creating an Estimate: Go to Jobs > New Estimate. Search customer by name/phone/email or add new. Add vehicle via VIN or manually. Add labor and parts lines. Send to customer via SMS or email for digital approval.
+- Converting Estimate to Work Order: Once customer approves, click "Convert to Work Order." Job is assigned to the shop floor.
+- Labor Times: AutoLeap integrates with Motor labor guide for flat-rate times. Click the wrench icon on any labor line to pull suggested times.
+- Parts Ordering: Add parts to a job and order directly from integrated suppliers (WORLDPAC, PartsTech, Nexpart, etc.) within the work order.
+- Multi-Technician Jobs: Assign multiple technicians under Job > Technicians. Each tech logs their own time.
+- Declined Services: Add declined items to a job — they are saved to the vehicle record for future follow-up.
 
-BUYING A CAR:
-- Making an Offer: Use "Make Offer" button. Seller notified by email and has 48h to respond.
-- Buyer Protection: AutoLeaps Buyer Protection covers purchases via our secure payment portal up to £50,000.
-- Financing / PCP: Available through partner lenders. Min deposit 10%, subject to credit check. APR from 6.9%.
-- Secure Payment / Escrow: Recommended for all transactions. Funds held until buyer confirms vehicle received.
+INVOICING & PAYMENTS:
+- Creating an Invoice: Finalize a work order and click "Create Invoice." Review totals, taxes, and parts markup.
+- Payment Methods: Credit/debit cards via AutoLeap Payments (Stripe), cash, check, or financing through Affirm.
+- Digital Invoices: Automatically emailed/texted to customers with a payment link.
+- Refunds: Process at invoice > Actions > Refund. Stripe refunds post in 5–10 business days.
+- Tax Settings: Configure at Settings > Taxes. Multiple tax zones supported.
+- Discounts: Apply line-item or whole-invoice discounts from the invoice screen.
 
-LEASING:
-- Lease Transfers: AutoLeaps Lease Swap allows listing and taking over existing lease agreements. My Account > Lease Swap > Add.
-- Lease Eligibility: New lease taker must pass credit check with original finance provider. AutoLeaps facilitates but does not guarantee approval.
-- Lease Payments: Outstanding lease payments must be up to date to list for swap.
-- Early Termination: Contact your finance provider directly.
+CUSTOMER & VEHICLE MANAGEMENT:
+- Adding a Customer: Customers > New Customer. Enter name, phone, email, preferred contact method.
+- Vehicle History: All past jobs accessible via Customers > [Name] > Vehicles > [Vehicle].
+- Service Reminders: Automated SMS/email reminders configured at Settings > Reminders.
+- Customer Portal: Customers view history and approve estimates via self-service portal link.
+- Merging Duplicates: Customers > find duplicate > Actions > Merge.
 
-ACCOUNT & BILLING:
-- Subscription Plans: Free (3 listings/month), Standard (£4.99/mo, 10 listings), Pro Dealer (£49.99/mo, unlimited + analytics).
-- Refund Policy: Subscription fees non-refundable once billing cycle begins. Listing upgrades refundable within 48h.
-- Payment Methods: Visa, Mastercard, Amex, PayPal. Bank transfer for Pro Dealer accounts only.
-- Invoice / VAT: Download at Account > Billing > Invoices. VAT receipts available for Pro Dealer accounts.
-- Cancelling a Plan: Cancel anytime at Account > Subscription > Cancel. Access continues until end of billing period.
+TECHNICIAN & SCHEDULING:
+- Clock-In: Technicians clock into jobs via Technician App (iOS/Android) or browser.
+- Schedule Board: Calendar view — assign jobs to bays or technicians. Drag and drop supported.
+- Productivity Reports: Reports > Technician Productivity — flagged vs. clocked hours per tech.
+- Comebacks: Mark a job as comeback under Job > Options > Mark as Comeback.
 
-DEALERS & FLEET:
-- Dealer Onboarding: Apply at autoleaps.com/dealers. Requires FCA number and proof of trading address. Approval 2–5 business days.
-- Fleet Listings: Bulk upload up to 500 vehicles via CSV at Account > Fleet > Bulk Upload.
-- Dealer Analytics: Available on Pro Dealer plan — views, leads, conversion data.
-- Lead Management: Enquiries route to dealer CRM via email or webhook integration.
+INVENTORY & PARTS:
+- Parts Catalog: Integrated with PartsTech, WORLDPAC, Nexpart, and other suppliers. Search from within any job.
+- Inventory Tracking: Enable at Settings > Inventory. Track on-hand quantities, reorder points, shrinkage.
+- Parts Markup Matrix: Set tiered markup by cost range at Settings > Parts > Markup Matrix.
+- Core Returns: Track core charges and returns on the parts line of any job.
 
-TRUST & SAFETY:
-- Scam Prevention: AutoLeaps never asks for payment outside the platform. Report suspicious listings at autoleaps.com/report.
-- ID Verification: All sellers must verify identity (driving licence or passport) before first sale completes.
-- GDPR & Data: Data deletion requests at Account > Privacy > Delete My Data. Processed within 30 days.
-- Fraud / Disputed Transactions: Contact trust@autoleaps.com immediately. Transaction frozen pending investigation.
+REPORTING & ANALYTICS:
+- Dashboard: Shows daily sales, ARO (Average Repair Order), car count, and outstanding invoices.
+- Sales Reports: Reports > Sales. Filter by date, service advisor, or job type.
+- Accounts Receivable: Reports > AR Aging — outstanding balances by customer.
+- Export: All reports exportable to CSV. QuickBooks Online and Desktop integration available.
 
-TECHNICAL:
-- App: Available on iOS 14+ and Android 10+. Download from App Store / Google Play.
-- Listing Not Showing: Check My Listings. If "Under Review" allow up to 2h. Contact support if stuck.
-- Notifications Not Working: Check app permissions > Settings > Notifications > AutoLeaps must be enabled.
+INTEGRATIONS:
+- Accounting: QuickBooks Online (real-time sync) and QuickBooks Desktop (batch export).
+- Parts Suppliers: PartsTech, WORLDPAC, Nexpart, WHI/Epicor, AutoZone Pro.
+- Payments: AutoLeap Payments (Stripe) — set up at Settings > Payments > AutoLeap Payments.
+- Tire Software: TireConnect integration for tire quoting.
+- Marketing & Reviews: Podium integration available on select plans.
+
+SUBSCRIPTION & BILLING:
+- Plans: Starter, Professional, and Enterprise. Pricing based on locations and users.
+- Free Trial: 14-day free trial, no credit card required.
+- Billing Cycle: Monthly or annual. Annual plans include a discount.
+- Cancellation: Account > Subscription > Cancel. Access continues until end of billing period. Data export available on request.
+- Refund Policy: Monthly subscriptions non-refundable mid-cycle. Annual plan disputes reviewed case-by-case.
+- Adding Users: Account > Team > Invite User. Roles: Owner, Service Advisor, Technician, Read-Only.
+
+ACCOUNT & SECURITY:
+- Password Reset: Login > Forgot Password. Reset link valid 60 minutes.
+- Two-Factor Authentication: Account > Security > Enable 2FA. Authenticator app or SMS.
+- Data Export: Account > Data > Export. Delivered within 3 business days.
+- GDPR / CCPA: Data deletion within 30 days. Account > Privacy > Delete My Data.
+- SSO: Available on Enterprise plan. SAML 2.0 supported.
+
+ONBOARDING & SUPPORT:
+- Getting Started: Dedicated onboarding specialist assigned to all Professional and Enterprise accounts.
+- Training: Free live webinars every Tuesday and Thursday at autoleap.com/training.
+- Help Center: help.autoleap.com — searchable articles and video walkthroughs.
+- Support: In-app chat (fastest), email support@autoleap.com, phone Mon–Fri 8AM–8PM ET.
+- SLA: Professional = 4h response. Enterprise = 1h response with dedicated CSM.
 
 ESCALATION TEAMS:
-- Billing disputes, refund requests → Billing Team (response: 1 business day)
-- Fraud, scam, disputed transactions → Trust & Safety Team (URGENT — response: 2h)
-- Dealer onboarding, FCA verification → Dealer Success Team (response: 2 business days)
-- Technical bugs, listing errors → Engineering Support (response: 4h)
-- Legal, GDPR → Legal & Compliance Team (response: 5 business days)
-- Lease transfer issues → Leasing Specialist Team (response: 1 business day)
+- Billing disputes, subscription issues → Billing Team (response: 1 business day)
+- Payment / Stripe processing issues → Payments Support Team (URGENT — response: 2h)
+- Data loss, critical bugs, outages → Engineering Support (P1 — response: 1h)
+- Integration issues (QuickBooks, parts suppliers) → Integrations Team (response: 4h)
+- Enterprise / multi-location accounts → Enterprise Success Team (response: 1h)
+- Legal, GDPR, CCPA → Legal & Compliance Team (response: 5 business days)
+- Onboarding, training → Customer Success / Onboarding Team
 """
 
 
@@ -315,16 +342,16 @@ ESCALATION TEAMS:
 # AGENT PROMPTS
 # ══════════════════════════════════════════════════════════════════════════════
 
-TRIAGE_PROMPT = """You are the Triage Agent for AutoLeaps — an online automotive marketplace in the UK and Ireland.
+TRIAGE_PROMPT = """You are the Triage Agent for AutoLeap — the #1 auto repair shop management software used by thousands of repair shops across North America.
 
 Your ONLY job: analyse an incoming support ticket and output a structured triage assessment.
 
 Return ONLY valid JSON, no preamble:
 {
   "priority": "P1|P2|P3",
-  "category": "Billing|Listing|Buying|Leasing|Dealer|Trust & Safety|Technical|Account|Other",
+  "category": "Billing|Estimates & Work Orders|Invoicing & Payments|Technician & Scheduling|Inventory & Parts|Reporting|Integrations|Account|Technical|Onboarding|Other",
   "sentiment": "Frustrated|Neutral|Positive|Urgent",
-  "customer_type": "Private Buyer|Private Seller|Dealer|Fleet Manager|Lease Holder|Unknown",
+  "customer_type": "Shop Owner|Service Advisor|Technician|Multi-Location Operator|New Customer|Unknown",
   "summary": "One sentence summary of the issue",
   "requires_human": true|false,
   "confidence": 0.0-1.0,
@@ -336,9 +363,9 @@ Priority guide:
 - P2: Listing not live, offer not received, billing error, lease swap blocked, dealer onboarding delayed
 - P3: General how-to question, feature query, minor issue, positive or neutral sentiment"""
 
-FAQ_PROMPT = """You are the FAQ Agent for AutoLeaps — an online automotive marketplace in the UK and Ireland.
+FAQ_PROMPT = """You are the FAQ Agent for AutoLeap — the #1 auto repair shop management software.
 
-You have access to the AutoLeaps knowledge base AND additional context retrieved from AutoLeaps' internal documents via RAG retrieval. Your job: determine if you can FULLY resolve the ticket and write a helpful response.
+You have access to the AutoLeap knowledge base AND additional context retrieved from AutoLeap' internal documents via RAG retrieval. Your job: determine if you can FULLY resolve the ticket and write a helpful response.
 
 Retrieved Knowledge Base Context:
 {kb}
@@ -355,28 +382,28 @@ Return ONLY valid JSON:
 
 Rules:
 - Only set can_resolve=true if you can FULLY answer from the provided context
-- Response must be warm, professional, AutoLeaps-branded, and actionable
+- Response must be warm, professional, AutoLeap-branded, and actionable
 - Address customer by name if provided
 - If any part requires account-level access, set can_resolve=false
 - rag_used=true if you drew on the retrieved document chunks"""
 
-ESCALATION_PROMPT = """You are the Escalation Routing Agent for AutoLeaps — an online automotive marketplace.
+ESCALATION_PROMPT = """You are the Escalation Routing Agent for AutoLeap — the #1 auto repair shop management software.
 
 Route to the correct team, set SLA, and write a structured handoff note.
 
-AutoLeaps Teams: Billing Team | Trust & Safety Team | Dealer Success Team | Engineering Support | Legal & Compliance Team | Leasing Specialist Team | Senior Customer Success
+AutoLeap Teams: Billing Team | Payments Support Team | Engineering Support | Integrations Team | Enterprise Success Team | Legal & Compliance Team | Customer Success / Onboarding Team
 
 Return ONLY valid JSON:
 {
   "escalate_to": "Team name",
   "internal_priority": "P1|P2|P3",
-  "sla_hours": 2|4|24|48,
+  "sla_hours": 1|2|4|24|48,
   "handoff_note": "Internal note — include context, what was attempted, recommended action",
-  "customer_holding_message": "Warm, professional AutoLeaps-branded message to customer with next steps and timeline",
+  "customer_holding_message": "Warm, professional AutoLeap-branded message to customer with next steps and realistic timeline",
   "tags": ["tag1", "tag2"]
 }"""
 
-CRM_PROMPT = """You are the CRM Logger Agent for AutoLeaps — an online automotive marketplace.
+CRM_PROMPT = """You are the CRM Logger Agent for AutoLeap — the #1 auto repair shop management software.
 
 Create a structured CRM log entry.
 
@@ -384,14 +411,14 @@ Return ONLY valid JSON:
 {
   "ticket_id": "AL-{id}",
   "customer_intent": "One phrase describing what the customer wanted",
-  "customer_type": "Private Buyer|Private Seller|Dealer|Fleet Manager|Lease Holder|Unknown",
+  "customer_type": "Shop Owner|Service Advisor|Technician|Multi-Location Operator|New Customer|Unknown",
   "resolution_type": "Resolved|Escalated|Pending",
   "resolution_summary": "1-2 sentence summary of outcome",
   "follow_up_required": true|false,
   "follow_up_action": "What follow-up is needed, if any",
   "csat_prediction": "Positive|Neutral|Negative",
   "tags": ["tag1", "tag2"],
-  "internal_notes": "Notes useful for future agents or account managers"
+  "internal_notes": "Notes useful for future agents or customer success managers"
 }"""
 
 
@@ -428,18 +455,18 @@ def orchestrate(ticket: str, customer_name: str, api_key: str, rag_index: dict) 
 
     # Step 2 — RAG Retrieval
     rag_chunks_used, rag_used = [], False
-    kb_context = AUTOLEAPS_KB
+    kb_context = AUTOLEAP_KB
     if rag_index and rag_index.get("chunks"):
         query = f"{ticket} {triage.get('category','')} {triage.get('summary','')}"
         top_chunks = retrieve_chunks(query, rag_index, top_k=5)
         if top_chunks:
             rag_used = True
             rag_chunks_used = [c for _, c in top_chunks]
-            kb_context = AUTOLEAPS_KB + "\n\n=== RETRIEVED FROM UPLOADED DOCUMENTS ===\n" + "\n\n---\n".join(rag_chunks_used)
-    rag_detail = f"Retrieved {len(rag_chunks_used)} chunks from uploaded documents" if rag_used else "No uploaded documents — using default AutoLeaps KB"
+            kb_context = AUTOLEAP_KB + "\n\n=== RETRIEVED FROM UPLOADED DOCUMENTS ===\n" + "\n\n---\n".join(rag_chunks_used)
+    rag_detail = f"Retrieved {len(rag_chunks_used)} chunks from uploaded documents" if rag_used else "No uploaded documents — using default AutoLeap KB"
     result["trace"].append({
         "agent": "RAG RETRIEVAL", "color": "#3B82F6", "bg": "#091529", "icon": "✦",
-        "output": f"{'✓ ' + str(len(rag_chunks_used)) + ' relevant chunks retrieved from your knowledge base' if rag_used else '○ Using default AutoLeaps knowledge base'}",
+        "output": f"{'✓ ' + str(len(rag_chunks_used)) + ' relevant chunks retrieved from your knowledge base' if rag_used else '○ Using default AutoLeap knowledge base'}",
         "detail": rag_detail,
         "ms": int((time.time() - t0) * 1000),
     })
@@ -524,7 +551,7 @@ for key, default in [("crm_log", []), ("last_result", None), ("rag_index", {}), 
 with st.sidebar:
     st.markdown("""
     <div style="margin-bottom:1.2rem;">
-      <div style="font-size:1.2rem;font-weight:800;color:#CDD9E5;letter-spacing:-0.3px;">🚗 AutoLeaps</div>
+      <div style="font-size:1.2rem;font-weight:800;color:#CDD9E5;letter-spacing:-0.3px;">🚗 AutoLeap</div>
       <div style="font-size:0.72rem;color:#536070;margin-top:2px;">AI Support Orchestrator</div>
     </div>
     """, unsafe_allow_html=True)
@@ -541,7 +568,7 @@ with st.sidebar:
       <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#536070;">📂 Knowledge Base</span>
       <span class="rag-badge">RAG</span>
     </div>
-    <div style="font-size:0.74rem;color:#536070;margin-bottom:8px;line-height:1.5;">Upload your AutoLeaps SOPs, pricing docs, dealer policies, or any support runbooks. The FAQ agent will retrieve and use them automatically.</div>
+    <div style="font-size:0.74rem;color:#536070;margin-bottom:8px;line-height:1.5;">Upload your AutoLeap SOPs, pricing docs, dealer policies, or any support runbooks. The FAQ agent will retrieve and use them automatically.</div>
     """, unsafe_allow_html=True)
 
     uploaded_files = st.file_uploader(
@@ -587,19 +614,19 @@ with st.sidebar:
     else:
         st.markdown("""
         <div style="background:var(--s2);border:1px dashed var(--border);border-radius:8px;padding:10px;text-align:center;">
-          <div style="font-size:0.72rem;color:#3D4A5C;">No docs uploaded<br><span style="font-size:0.68rem;">Default AutoLeaps KB active</span></div>
+          <div style="font-size:0.72rem;color:#3D4A5C;">No docs uploaded<br><span style="font-size:0.68rem;">Default AutoLeap KB active</span></div>
         </div>""", unsafe_allow_html=True)
 
     # Demo tickets
     st.markdown("---")
     st.markdown('<div class="slabel">🎭 Demo Tickets</div>', unsafe_allow_html=True)
     DEMOS = {
-        "😡 Double-Charged": "I was charged £49.99 twice this month for my Pro Dealer subscription — once on the 1st and again on the 3rd. I need the duplicate refunded immediately. I manage 30 listings and this is the second billing issue I've had.",
-        "🚗 Listing Not Live": "I submitted my 2021 BMW 3 Series listing 6 hours ago with all required photos and it's still 'Under Review'. I have a serious buyer waiting and need this live today. What is causing the delay?",
-        "❓ New Seller": "Hi, I'm new and want to sell my car privately. How do I create a listing? What photos do I need? Do I need to arrange the HPI check or does AutoLeaps do that?",
-        "🔐 Fraud Suspected": "Someone made an offer on my car and is now asking me to proceed via a bank transfer outside AutoLeaps. They claim to be a verified AutoLeaps buyer. Is this legitimate? I haven't sent any money yet.",
-        "🔄 Lease Transfer": "I want to swap my remaining 14-month Audi A3 lease. I found someone to take it over. How does the credit check work and what happens if they're declined? Who bears the cost?",
-        "🏢 Dealer Approval": "I applied to become a verified dealer 4 days ago and uploaded my FCA registration and trading address. No response. We have 35 vehicles ready to list. How long does approval actually take?",
+        "😡 QuickBooks Not Syncing": "Our QuickBooks Online integration stopped syncing 2 days ago. We have $4,200 in invoices that haven't posted to our books and our accountant is asking questions. We're on the Professional plan. This is urgent — what do I do?",
+        "🔧 Parts Ordering Error": "When I try to order parts through PartsTech from inside a work order, I get an 'Authentication Error' and nothing goes through. This has been happening since yesterday morning. We have 6 jobs waiting on parts.",
+        "❓ Labor Times Setup": "Hi, I just signed up and I'm trying to figure out how to get Motor labor guide times to populate automatically when I add a labor line to an estimate. I can't find the setting anywhere.",
+        "💳 Payment Not Received": "A customer paid their $890 invoice via the AutoLeap payment link 3 days ago. The invoice shows 'Paid' in the system but the money hasn't hit our bank account yet. Where is it?",
+        "📊 Technician Report Wrong": "The technician productivity report is showing 0 flagged hours for all our techs this week even though they clocked into jobs. Hours clocked are showing correctly. Something is broken in the report.",
+        "🏢 Multi-Location Setup": "We're expanding to a second location next month. How does multi-location work in AutoLeap? Do we need a separate subscription? How do we keep inventory and reporting separate per location?",
     }
     demo_choice = st.selectbox("Load a demo", ["(none)"] + list(DEMOS.keys()), label_visibility="collapsed")
     if demo_choice != "(none)":
@@ -643,22 +670,22 @@ total_chunks_count = sum(len(d["chunks"]) for d in st.session_state.rag_docs)
 rag_status_html = (
     f'<span class="rag-badge">✦ RAG ACTIVE — {total_chunks_count} chunks from {rag_docs_count} doc(s)</span>'
     if rag_docs_count else
-    '<span style="font-size:0.72rem;color:#536070;background:var(--s3);border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-weight:600;">Default AutoLeaps KB</span>'
+    '<span style="font-size:0.72rem;color:#536070;background:var(--s3);border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-weight:600;">Default AutoLeap KB</span>'
 )
 
 st.markdown(f"""
 <div class="sys-desc">
   <div class="sys-desc-title">⚙️ How This System Works</div>
   <div class="sys-desc-body">
-    This is <strong>AutoLeaps' multi-agent AI support orchestration system</strong> — purpose-built for the UK and Ireland automotive marketplace. Every customer ticket is automatically processed through a <strong>5-stage intelligent pipeline</strong> powered by Claude, designed around AutoLeaps' specific customer types: private buyers, private sellers, dealers, fleet managers, and lease holders.
+    This is <strong>AutoLeap's multi-agent AI support orchestration system</strong> — purpose-built for the #1 auto repair shop management software. Every customer ticket is automatically processed through a <strong>5-stage intelligent pipeline</strong> powered by Claude, designed around AutoLeap's specific customer types: shop owners, service advisors, technicians, and multi-location operators.
     <br><br>
-    <strong>① Triage Agent</strong> — Reads the ticket and classifies priority (P1 critical / P2 standard / P3 low), support category (Billing, Listing, Leasing, Dealer, Trust &amp; Safety, etc.), customer sentiment, and customer type. Every ticket is understood in AutoLeaps context before any action is taken.
+    <strong>① Triage Agent</strong> — Reads the ticket and classifies priority (P1 critical / P2 standard / P3 low), support category (Billing, Listing, Leasing, Dealer, Trust &amp; Safety, etc.), customer sentiment, and customer type. Every ticket is understood in AutoLeap context before any action is taken.
     <br><br>
-    <strong>✦ RAG Retrieval</strong> — Searches your uploaded AutoLeaps documents — SOPs, pricing guides, dealer policies, escalation runbooks — using TF-IDF semantic matching to retrieve the most relevant content for each specific ticket. This grounds every response in <em>your actual policies and data</em>, not generic answers. Upload your docs in the sidebar to activate. {rag_status_html}
+    <strong>✦ RAG Retrieval</strong> — Searches your uploaded AutoLeap documents — SOPs, pricing guides, dealer policies, escalation runbooks — using TF-IDF semantic matching to retrieve the most relevant content for each specific ticket. This grounds every response in <em>your actual policies and data</em>, not generic answers. Upload your docs in the sidebar to activate. {rag_status_html}
     <br><br>
-    <strong>② FAQ Agent</strong> — Attempts to fully resolve the ticket using the retrieved knowledge. Tickets resolved automatically receive an instant, accurate, AutoLeaps-branded response — targeting ~60% deflection rate and removing routine tickets from the human queue entirely.
+    <strong>② FAQ Agent</strong> — Attempts to fully resolve the ticket using the retrieved knowledge. Tickets resolved automatically receive an instant, accurate, AutoLeap-branded response — targeting ~60% deflection rate and removing routine tickets from the human queue entirely.
     <br><br>
-    <strong>③ Escalation Agent</strong> — Routes unresolved or complex tickets to the correct AutoLeaps team (Billing, Trust &amp; Safety, Dealer Success, Leasing Specialists, Engineering, Legal) with a structured internal handoff note and a warm customer-facing holding message with realistic SLA timelines.
+    <strong>③ Escalation Agent</strong> — Routes unresolved or complex tickets to the correct AutoLeap team (Billing, Payments Support, Engineering, Integrations, Enterprise Success, Legal) with a structured internal handoff note and a warm customer-facing holding message with realistic SLA timelines.
     <br><br>
     <strong>④ CRM Logger</strong> — Records every interaction with structured metadata including customer type, resolution outcome, CSAT prediction, follow-up flags, and tags — exportable as CSV for your CRM system.
   </div>
@@ -695,14 +722,14 @@ st.markdown(f"""
 
 # Agent cards
 rag_active = bool(st.session_state.rag_docs)
-rag_label = f"● Active — {total_chunks_count} chunks" if rag_active else "● Default AutoLeaps KB"
+rag_label = f"● Active — {total_chunks_count} chunks" if rag_active else "● Default AutoLeap KB"
 rag_color = "var(--orch)" if rag_active else "var(--muted)"
 
 st.markdown(f"""
 <div class="agent-grid">
   <div class="agent-card triage">
     <div class="agent-name" style="color:var(--triage);">🔍 Triage Agent</div>
-    <div class="agent-desc">Classifies priority, category, sentiment, and customer type (buyer, seller, dealer, fleet, lease holder).</div>
+    <div class="agent-desc">Classifies priority, category, sentiment, and customer type (shop owner, service advisor, technician, multi-location).</div>
     <div class="agent-status" style="color:var(--triage);">● Ready</div>
   </div>
   <div class="agent-card rag">
@@ -712,7 +739,7 @@ st.markdown(f"""
   </div>
   <div class="agent-card escalate">
     <div class="agent-name" style="color:var(--escalate);">🚨 Escalation Agent</div>
-    <div class="agent-desc">Routes to the correct AutoLeaps team: Billing, Trust & Safety, Dealer, Leasing, Engineering, Legal.</div>
+    <div class="agent-desc">Routes to the correct AutoLeap team: Billing, Payments, Engineering, Integrations, Enterprise Success, Legal.</div>
     <div class="agent-status" style="color:var(--escalate);">● Ready</div>
   </div>
   <div class="agent-card crm">
@@ -746,7 +773,7 @@ if submit_btn:
     elif not ticket_text.strip():
         st.error("⚠️ Please enter a support ticket.")
     else:
-        with st.spinner("🤖 AutoLeaps agents processing…"):
+        with st.spinner("🤖 AutoLeap agents processing…"):
             try:
                 result = orchestrate(ticket_text.strip(), customer_name, api_key, st.session_state.rag_index)
                 st.session_state.last_result = result
@@ -879,7 +906,7 @@ if st.session_state.crm_log:
                         ce.get("csat_prediction",""), "Yes" if e.get("rag_used") else "No",
                         ce.get("follow_up_required",""), ce.get("resolution_summary",""), e.get("timestamp","")])
         st.download_button("⬇️ Export CRM as CSV", buf.getvalue().encode(),
-                           file_name=f"autoleaps_crm_{datetime.now().strftime('%Y%m%d')}.csv",
+                           file_name=f"autoleap_crm_{datetime.now().strftime('%Y%m%d')}.csv",
                            mime="text/csv", use_container_width=True)
     with c2:
         if st.button("🗑️ Clear Log", use_container_width=True):
@@ -891,7 +918,7 @@ elif not st.session_state.last_result:
     st.markdown("""
     <div style="text-align:center;padding:3rem 2rem;">
       <div style="font-size:2.5rem;margin-bottom:0.8rem;">🚗</div>
-      <div style="font-size:0.95rem;font-weight:600;color:#536070;margin-bottom:0.4rem;">AutoLeaps pipeline ready — no tickets processed yet</div>
+      <div style="font-size:0.95rem;font-weight:600;color:#536070;margin-bottom:0.4rem;">AutoLeap pipeline ready — no tickets processed yet</div>
       <div style="font-size:0.82rem;color:#2A3347;">Submit a ticket above or load a demo · Upload your docs in the sidebar to activate RAG</div>
     </div>
     """, unsafe_allow_html=True)
